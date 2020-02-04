@@ -15,17 +15,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/exercise', (req, res) => {
-    res.redirect('/exercise.html');
+    res.sendFile(path.normalize(__dirname + "/public/exercise.html"));
 });
 
 app.get('/stats', (req, res) => {
-    res.redirect('/stats.html');
+    res.sendFile(path.normalize(__dirname + "/public/stats.html"));
 })
 
 app.get('/api/workouts', (req, res) => {
     db.Workout.find({}).then(data => {
-        // if (err) console.log(err);
-        //else 
         res.json(data);
     });
 });
