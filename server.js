@@ -24,6 +24,7 @@ app.get('/stats', (req, res) => {
 
 app.get('/api/workouts', (req, res) => {
     db.Workout.find({}).then(data => {
+        console.log(data);
         res.json(data);
     });
 });
